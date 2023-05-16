@@ -38,3 +38,14 @@ def get_recommendations(topic_confidence, limit=5):
         })
         current_index += 1
     return recommendations
+
+def get_code_quality_data(source_code):
+   return {
+        'source_code': source_code,
+        'feedback': call_openai(
+            f"Generate the code quality report for the following code, do not rewrite it, just give tips on how to improve code quality point wise: \n {source_code}"
+        ),
+        'cleaned_code': call_openai(
+            f"Clean the following code, improve code quality using best practices, do not output anything other than the cleaned code: \n {source_code}"
+        )
+   }

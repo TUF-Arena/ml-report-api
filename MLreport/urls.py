@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("generate-report/", views.generate_report)
+    path("generate-report/", views.generate_report),
+    path("code-quality/", views.code_quality)
 ]
